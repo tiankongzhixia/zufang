@@ -13,4 +13,4 @@ date_default_timezone_set('prc');
 
 
 
-$app->get('/','getController@selecetData',function (){});
+$app->get('/','personal@selecetData',function (){});
