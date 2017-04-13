@@ -58,7 +58,7 @@ class personal
                     $query = $query->where('lease_type', 'like', '%' . $lease_type . '%');
                 }
             }
-            return $query->orderBy('time','desc')->take(300)->paginate(10);
+            return $query->orderBy('create_time','desc')->take(300)->paginate(10);
 
         } else {
             return "兄弟你懂得";
