@@ -15,8 +15,8 @@ class calibrationCookie
     {
 
         if (!empty($_COOKIE['time'])) {
-            $time = $_COOKIE['time'];
-            if ($time=="wow") {
+//            $time = $_COOKIE['time'];
+//            if ($time=="wow") {
 //            $time = $time*72.92;
 //            if (time() - $time < 120) {
                 return true;
@@ -24,5 +24,5 @@ class calibrationCookie
 //            }
         }
 //        return false;
-    }
+ //   }
 }
