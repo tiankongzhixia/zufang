@@ -19,31 +19,44 @@ class personal
         if ($cailbration->calibrationCookie()) {
             $query = DB::table('house');
             if (is_array($_GET) && count($_GET) > 0) {
-                $type = $_GET["type"];
-                $region = $_GET["region"];
-                $money = explode("-", $_GET["money"]);
-                $room_type = $_GET["rtype"];
-                $lease_type = $_GET["ltype"];
-                switch ($lease_type){
-                    case 1:
-                        $lease_type = "一室";
-                        break;
-                    case 2:
-                        $lease_type = "二室";
-                        break;
-                    case 3:
-                        $lease_type = "三室";
-                        break;
-                    case 4:
-                        $lease_type = "四室";
-                        break;
+                if (isset($_GET["type"])) {
+                    $type = $_GET["type"];
+                    $query = $query->where('type', $type);
                 }
-                $query = $query->where('type',$type)
-                       ->where('region', 'like', '%' . $region . '%')
-                       ->where('address_info', 'like', '%' . $region . '%')
-                        ->where('room_type', 'like', '%' . $room_type . '%')
-                        ->where('lease_type', 'like', '%' . $lease_type . '%')
-                        ->whereBetween('money', [(int)$money[0],(int)$money[1]]);
+                if (isset($_GET["region"])){
+                    $region = $_GET["region"];
+                    $query = $query->where('region', 'like', '%' . $region . '%');
+                }
+                if (isset($_GET["region2"])){
+                    $region2 = $_GET["region2"];
+                    $query = $query->where('region', 'like', '%' . $region2 . '%');
+                }
+                if (isset($_GET["money"])){
+                    $money = explode("-", $_GET["money"]);
+                    $query = $query->whereBetween('money', [(int)$money[0],(int)$money[1]]);
+                }
+                if (isset($_GET["rtype"])){
+                    $room_type = $_GET["rtype"];
+                    $query = $query->where('room_type', 'like', '%' . $room_type . '%');
+                }
+                if (isset($_GET["ltype"])){
+                    $lease_type = $_GET["ltype"];
+                    switch ($lease_type){
+                        case 1:
+                            $lease_type = "1室";
+                            break;
+                        case 2:
+                            $lease_type = "2室";
+                            break;
+                        case 3:
+                            $lease_type = "3室";
+                            break;
+                        case 4:
+                            $lease_type = "4室";
+                            break;
+                    }
+                    $query = $query->where('lease_type', 'like', '%' . $lease_type . '%');
+                }
             }
             return $query->orderBy('time','desc')->take(300)->paginate(10);
 
