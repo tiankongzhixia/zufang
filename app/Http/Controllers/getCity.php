@@ -15,14 +15,11 @@ class getCity
         $city = DB::table('region')->where('superior_city','北京')->pluck('name')->toArray();
         $region = DB::table('region2')->join('region','region.name','=','region2.region')
             ->select('region2.*');
-        $list = array();
+        $list=array();
         foreach ($city as $item) {
-            var_dump($item);
-            $region2 = $region
+            array_push($list,[$item => $region
                 ->where('region',$item)
-                ->pluck('name');
-            $response = [$item => $region2];
-            array_push($list,$response);
+                ->pluck('name')]);
         }
 
         return response()->json(['code' => 0, 'data' => ['北京'=>$list]]);
