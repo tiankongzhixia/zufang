@@ -11,7 +11,5 @@ date_default_timezone_set('prc');
 |
 */
 
-
-
-$app->get('/','personal@selecetData',function (){});
-$app->get('city','getCity@getCity',function (){});
+Route::get('/','personal@selecetData',function (){});
+Route::get('city','getCity@getCity',function (){});
