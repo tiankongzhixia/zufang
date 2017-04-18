@@ -13,4 +13,4 @@ date_default_timezone_set('prc');
 
 
 $app->get('/','personal@selecetData',function (){});
-$app->get('city','getCity@getCity',function (){});
+$app->get('city/{name}','getCity@getCity',function (){});

@@ -11,9 +11,9 @@ use Illuminate\Support\Facades\DB;
 
 class getCity
 {
-    public function getCity(){
+    public function getCity($name){
         $query = DB::table('region')->select('superior_city as city','name as region')
-           ->groupBy('superior_city')->get();
+           ->where('superior_city','=',$name)->get();
         return $query;
     }
 }
