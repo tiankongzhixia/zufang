@@ -14,15 +14,13 @@ class calibrationCookie
     public function calibrationCookie()
     {
 
-        if (!empty($_COOKIE['time'])) {
+ //       if (!empty($_COOKIE['time'])) {
 //            $time = $_COOKIE['time'];
-//            if ($time=="wow") {
 //            $time = $time*72.92;
 //            if (time() - $time < 120) {
                 return true;
             }
-//            }
-        }
+ //       }
 //        return false;
  //   }
 }
