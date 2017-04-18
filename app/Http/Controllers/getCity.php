@@ -17,9 +17,11 @@ class getCity
             ->select('region2.*');
         $list=array();
         foreach ($city as $item) {
-            array_push($list,[$item => $region
+            $response = [$item => $region
                 ->where('region',$item)
-                ->pluck('name')]);
+                ->pluck('name')];
+            var_dump($response);
+            array_push($list,$response);
         }
 
         return response()->json(['code' => 0, 'data' => ['北京'=>$list]]);
