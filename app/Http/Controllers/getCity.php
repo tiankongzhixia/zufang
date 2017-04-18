@@ -13,7 +13,7 @@ class getCity
 {
     public function getCity(){
         //$city = DB::table('region')->where('superior_city','北京')->pluck('name');
-        $region = DB::table('region2')->join('region', 'region2.region', '=', 'region.name')->where('region','朝阳')->pluck('name');
+        $region = DB::table('region2','region')->select('region2.*')->where('region.name','region2.region')->pluck('name');
         return response()->json(['code' => 0, 'data' => ['北京'=>$region]]);
 
     }
