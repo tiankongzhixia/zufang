@@ -29,7 +29,7 @@ class personal
                 }
                 if (isset($_GET["region2"])){
                     $region2 = $_GET["region2"];
-                    $query = $query->where('region', 'like', '%' . $region2 . '%');
+                    $query = $query->where('region2', 'like', '%' . $region2 . '%');
                 }
                 if (isset($_GET["money"])){
                     $money = explode("-", $_GET["money"]);
