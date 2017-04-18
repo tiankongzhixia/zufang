@@ -12,11 +12,8 @@ use Illuminate\Support\Facades\DB;
 class getCity
 {
     public function getCity(){
-        $query = DB::table('region')
-           ->orderBy('superior_city')->get();
-        foreach ($query as $value){
-            each($value);
-        }
+        $query = DB::table('region')->lists('name as region');
+
         return response()->json(['code' => 0, 'data' => $query]);
 
     }
