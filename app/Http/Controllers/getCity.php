@@ -13,8 +13,6 @@ use Cache;
 class getCity
 {
     public function getCity(){
-        $rd = array();
-
         if(Cache::has('city')){
             $rd = Cache::get('city');
         }else {
@@ -25,7 +23,6 @@ class getCity
                     ->select('region2.*')
                     ->where('region', $item)
                     ->pluck('name')];
-                var_dump($response);
                 array_push($list, $response);
             }
             $rd =$list;
