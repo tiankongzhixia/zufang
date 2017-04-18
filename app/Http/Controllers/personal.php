@@ -17,7 +17,7 @@ class personal
         $cailbration = new calibrationCookie();
 
         if ($cailbration->calibrationCookie()) {
-            $query = DB::table('house');
+            $query = DB::table('house')->select('title','url','type','money','city','create_time','region','region2','room_type','address_info','lease_type','area','pay_type','img_url');
             if (is_array($_GET) && count($_GET) > 0) {
                 if (isset($_GET["type"])) {
                     $type = $_GET["type"];
