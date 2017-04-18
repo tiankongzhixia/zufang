@@ -12,8 +12,8 @@ use Illuminate\Support\Facades\DB;
 class getCity
 {
     public function getCity(){
-        $query = DB::table('region')->select('name as region')
-           ->where('superior_city','北京')->get();
+        $query = DB::table('region')
+           ->orderBy('superior_city')->get();
         foreach ($query as $value){
             each($value);
         }
