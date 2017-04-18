@@ -13,14 +13,12 @@ class getCity
 {
     public function getCity(){
         $city = DB::table('region')->where('superior_city','北京')->pluck('name')->toArray();
-        $region = DB::table('region2')->join('region','region.name','=','region2.region')
-            ->select('region2.*');
         $list=array();
         foreach ($city as $item) {
-            $response = [$item => $region
+            $response = [$item => DB::table('region2')->join('region','region.name','=','region2.region')
+                ->select('region2.*')
                 ->where('region',$item)
                 ->pluck('name')];
-            var_dump($response);
             array_push($list,$response);
         }
 
