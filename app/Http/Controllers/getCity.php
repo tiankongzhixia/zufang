@@ -13,7 +13,7 @@ class getCity
 {
     public function getCity(){
         $query = DB::table('region')->select('name as region')
-           ->groupBy('superior_city')->get();
+           ->where('superior_city','北京')->get();
         return $query;
     }
 }
