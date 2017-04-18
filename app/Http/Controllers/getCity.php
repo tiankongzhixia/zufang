@@ -12,9 +12,9 @@ use Illuminate\Support\Facades\DB;
 class getCity
 {
     public function getCity(){
-        $query = DB::table('region')->lists('name as region');
+        $query = DB::table('region')->lists('name');
 
-        return response()->json(['code' => 0, 'data' => $query]);
+        return response()->json(['code' => 0, 'data' => ['北京'=>$query]]);
 
     }
 }
