@@ -12,7 +12,7 @@ use DB;
 class getCity
 {
     public function getCity(){
-        $query = DB::table('region')->lists('name');
+        $query = DB::table('region')->pluck('name');
 
         return response()->json(['code' => 0, 'data' => ['北京'=>$query]]);
 
