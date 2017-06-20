@@ -35,27 +35,33 @@ class personal
                     $money = explode("-", $_GET["money"]);
                     $query = $query->whereBetween('money', [(int)$money[0],(int)$money[1]]);
                 }
-                if (isset($_GET["rtype"])){
-                    $room_type = $_GET["rtype"];
-                    $query = $query->where('room_type', 'like', '%' . $room_type . '%');
-                }
                 if (isset($_GET["ltype"])){
                     $lease_type = $_GET["ltype"];
-                    switch ($lease_type){
-                        case 1:
-                            $lease_type = "1室";
+                    $query = $query->where('lease_type', 'like', '%' . $lease_type . '%');
+                }
+                if (isset($_GET["rtype"])){
+                    $room_type = $_GET["rtype"];
+                    switch ($room_type){
+                        case '一室':
+                            $room_type = "1室";
                             break;
-                        case 2:
-                            $lease_type = "2室";
+                        case '两室':
+                            $room_type = "2室";
                             break;
-                        case 3:
-                            $lease_type = "3室";
+                        case '三室':
+                            $room_type = "3室";
                             break;
-                        case 4:
-                            $lease_type = "4室";
+                        case '四室':
+                            $room_type = "4室";
+                            break;
+                        case '五室':
+                            $room_type = "5室";
+                            break;
+                        case '六室':
+                            $room_type = "6室";
                             break;
                     }
-                    $query = $query->where('lease_type', 'like', '%' . $lease_type . '%');
+                    $query = $query->where('lease_type', 'like', '%' . $room_type . '%');
                 }
             }
 

@@ -1,0 +1,13 @@
+APP_ENV=local
+APP_DEBUG=true
+APP_KEY=adsccs
+APP_TIMEZONE=UTC
+
+DB_CONNECTION=mysql
+DB_HOST=mysqlguoweijie.cfafmoizeqxm.us-west-2.rds.amazonaws.com
+DB_PORT=3306
+DB_DATABASE=zufang_crawler
+DB_USERNAME=root
+DB_PASSWORD=xiangsi1314
+
+QUEUE_DRIVER=sync
