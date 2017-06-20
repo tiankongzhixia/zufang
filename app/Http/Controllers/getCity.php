@@ -9,6 +9,7 @@
 namespace App\Http\Controllers;
 use DB;
 use Cache;
+use Illuminate\Database\Eloquent\Model;
 
 class getCity
 {
